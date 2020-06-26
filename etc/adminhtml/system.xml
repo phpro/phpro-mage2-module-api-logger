@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="phpro" sortOrder="10" translate="label">
+            <label>Phpro</label>
+        </tab>
+        <section id="system">
+            <tab>advanced</tab>
+            <resource>Phpro_APILogger::config_rest_api_logger</resource>
+            <group id="api_log" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>REST API logging</label>
+                <field id="file" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Logger file</label>
+                </field>
+                <field id="level" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Logger level</label>
+                    <source_model>Phpro\LoggerHandler\Config\LogLevelsSource</source_model>
+                </field>
+                <field id="add_slashes" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Add (back)slashes for the request and response messages</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

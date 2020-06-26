@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Webapi\Controller\Rest">
+        <plugin name="rest-api-log" type="Phpro\APILogger\Plugin\RestApiLog"/>
+    </type>
+    <virtualType name="phpro_api_logger_handler" type="Phpro\LoggerHandler\Logger\Handler">
+        <arguments>
+            <argument name="config" xsi:type="object">Phpro\APILogger\Config\SystemConfiguration</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="phpro_api_logger" type="Monolog\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">phpro-api-logger</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="stream" xsi:type="object">phpro_api_logger_handler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Phpro\APILogger\Plugin\RestApiLog">
+        <arguments>
+            <argument name="logger" xsi:type="object">phpro_api_logger</argument>
+        </arguments>
+    </type>
+</config>
