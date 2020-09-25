@@ -12,8 +12,8 @@
   ],
   "require": {
     "php": "^7.0",
-    "magento/framework": "^100.1|^101.0|^102.0",
-    "phpro/mage2-module-logger-handler": "^2.0.0"
+    "magento/framework": "^100.1|^101.0|^102.0|^103.0",
+    "phpro/mage2-module-logger-handler": "^3.0.0"
   },
   "require-dev": {
     "magento/marketplace-eqp": "^1.0",
