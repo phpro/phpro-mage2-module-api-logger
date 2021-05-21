@@ -24,8 +24,7 @@ class RestApiLog
     public function __construct(
         LoggerInterface $logger,
         SystemConfiguration $configuration
-    )
-    {
+    ) {
         $this->logger = $logger;
         $this->configuration = $configuration;
     }
@@ -34,8 +33,7 @@ class RestApiLog
         Rest $subject,
         callable $proceed,
         HttpRequest $request
-    )
-    {
+    ) {
         $time_pre = microtime(true);
         $response = $proceed($request);
         list($responseStatusCode, $responseBody) = $this->getResponseData($response);
