@@ -24,7 +24,8 @@ class RestApiLog
     public function __construct(
         LoggerInterface $logger,
         SystemConfiguration $configuration
-    ) {
+    )
+    {
         $this->logger = $logger;
         $this->configuration = $configuration;
     }
@@ -33,7 +34,8 @@ class RestApiLog
         Rest $subject,
         callable $proceed,
         HttpRequest $request
-    ) {
+    )
+    {
         $time_pre = microtime(true);
         $response = $proceed($request);
         list($responseStatusCode, $responseBody) = $this->getResponseData($response);
@@ -42,8 +44,8 @@ class RestApiLog
             '[API LOGGER] [IP: "%s"] [Method: "%s"] [Endpoint: "%s"] [ResponseCode: "%s"] [Exec Time: %s] [Request Body: "%s"] [Response Body: "%s"]',
             $request->getClientIp(),
             $request->getMethod(),
-            $responseStatusCode,
             $request->getRequestUri(),
+            $responseStatusCode,
             microtime(true) - $time_pre,
             $this->parseMessage($request->getContent()),
             $this->parseMessage($responseBody)

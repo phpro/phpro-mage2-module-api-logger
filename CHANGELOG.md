@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.0.1] - 2021-05-21
+- Bugfix: request uri and status code mapped with correct label in logging
+
 ## [3.0.0] - 2020-09-25
 
 - Magento 2.4 compatibility
