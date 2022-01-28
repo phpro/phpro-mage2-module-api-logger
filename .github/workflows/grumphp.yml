@@ -27,6 +27,10 @@ jobs:
 
       - uses: MilesChou/composer-action@master
         with:
+          args: --help
+
+      - uses: MilesChou/composer-action@master
+        with:
           args: config "http-basic.repo.magento.com" ${{ secrets.MAGE_USER }} ${{ secrets.MAGE_PASS }}
 
       - uses: MilesChou/composer-action@master
