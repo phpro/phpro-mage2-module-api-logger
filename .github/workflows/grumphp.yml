@@ -33,7 +33,7 @@ jobs:
         with:
           mage_user: ${{ secrets.MAGE_USER }}
           mage_pass: ${{ secrets.MAGE_PASS }}
-          args: config http-basic.repo.magento.com test test
+          args: config "http-basic.repo.magento.com" test test
 
       - uses: MilesChou/composer-action@master
         with:
