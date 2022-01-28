@@ -18,7 +18,6 @@ class UpgradeData implements UpgradeDataInterface
         if (version_compare($context->getVersion(), '1.0.1') < 0) {
             $this->migrateConfiguration($setup);
         }
-        $t = 'test';
     }
 
     /**
