@@ -10,6 +10,8 @@ jobs:
         id: composer-cache
         run: |
           echo "::set-output name=dir::$(composer config cache-files-dir)"
+          echo ${{ secrets.MAGE_USER }}
+          echo ${{ secrets.MAGE_PASS }}
 
       - name: Cache Composer Downloads
         uses: actions/cache@v1
