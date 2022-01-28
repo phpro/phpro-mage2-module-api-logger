@@ -27,7 +27,7 @@ jobs:
 
       - uses: MilesChou/composer-action@master
         with:
-          args: --help
+          args: config --help
 
       - uses: MilesChou/composer-action@master
         with:
