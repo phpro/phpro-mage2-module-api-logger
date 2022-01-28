@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Phpro\APILogger\Config;
 
 use Phpro\LoggerHandler\Config\LogConfiguration;

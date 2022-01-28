@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Phpro\APILogger\Plugin;
@@ -39,7 +40,8 @@ class RestApiLog
         list($responseStatusCode, $responseBody) = $this->getResponseData($response);
 
         $this->logger->info(sprintf(
-            '[API LOGGER] [IP: "%s"] [Method: "%s"] [Endpoint: "%s"] [ResponseCode: "%s"] [Exec Time: %s] [Request Body: "%s"] [Response Body: "%s"]',
+            '[API LOGGER] [IP: "%s"] [Method: "%s"] [Endpoint: "%s"] [ResponseCode: "%s"]' .
+            '[Exec Time: %s] [Request Body: "%s"] [Response Body: "%s"]',
             $request->getClientIp(),
             $request->getMethod(),
             $request->getRequestUri(),
