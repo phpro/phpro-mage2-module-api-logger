@@ -10,8 +10,6 @@ jobs:
         id: composer-cache
         run: |
           echo "::set-output name=dir::$(composer config cache-files-dir)"
-          echo ${{ secrets.MAGE_USER }}
-          echo ${{ secrets.MAGE_PASS }}
 
       - name: Cache Composer Downloads
         uses: actions/cache@v1
@@ -35,7 +33,7 @@ jobs:
         with:
           mage_user: ${{ secrets.MAGE_USER }}
           mage_pass: ${{ secrets.MAGE_PASS }}
-          args: config http-basic.repo.magento.com ${{ secrets.MAGE_USER }} ${{ secrets.MAGE_PASS }}
+          args: config http-basic.repo.magento.com test test
 
       - uses: MilesChou/composer-action@master
         with:
