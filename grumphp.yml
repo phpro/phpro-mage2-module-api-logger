@@ -1,7 +1,7 @@
-parameters:
+grumphp:
     tasks:
         phpcs:
-            standard: "ruleset.xml"
+            standard: [Magento2, PSR2]
             warning_severity: 0
             ignore_patterns:
                 - "Test/Unit"

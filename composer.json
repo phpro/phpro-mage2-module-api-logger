@@ -11,13 +11,13 @@
     }
   ],
   "require": {
-    "php": "^7.0",
+    "php": "^7.1",
     "magento/framework": "^100.1|^101.0|^102.0|^103.0",
     "phpro/mage2-module-logger-handler": "^3.0.0"
   },
   "require-dev": {
-    "magento/marketplace-eqp": "^1.0",
-    "phpro/grumphp": "^0.14"
+    "phpro/grumphp-shim": "~1.5.0",
+    "magento/magento-coding-standard": "5"
   },
   "autoload": {
     "psr-4": {
@@ -48,5 +48,13 @@
       "ext-soap": "7.1",
       "ext-zip": "7.1"
     }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard,../../phpcompatibility/php-compatibility/PHPCompatibility)"
+    ],
+    "post-update-cmd": [
+      "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard,../../phpcompatibility/php-compatibility/PHPCompatibility)"
+    ]
   }
 }
