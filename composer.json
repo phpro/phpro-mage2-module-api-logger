@@ -13,7 +13,7 @@
   "require": {
     "php": "^7.1",
     "magento/framework": "^100.1|^101.0|^102.0|^103.0",
-    "phpro/mage2-module-logger-handler": "^3.0.0:^4.0.0"
+    "phpro/mage2-module-logger-handler": "^3.0.0|^4.0.0"
   },
   "require-dev": {
     "phpro/grumphp-shim": "~1.5.0",
