@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.0.2] - 2022-7-7
+- Updated LoggerHandler to 4.x
+
 ## [3.0.1] - 2021-05-21
 - Bugfix: request uri and status code mapped with correct label in logging
 
