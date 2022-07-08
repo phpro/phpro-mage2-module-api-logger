@@ -1,7 +1,10 @@
 # Changelog
 
-## [3.0.2] - 2022-07-08
+## [3.0.3] - 2022-07-08
 - Added support for LoggerHandler versions 4.x
+
+## [3.0.2] - 2022-01-28
+- Updated grumphp code quality checks
 
 ## [3.0.1] - 2021-05-21
 - Bugfix: request uri and status code mapped with correct label in logging
