@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.0.4] - 2022-07-25
+- Added support for PHP 8
+
 ## [3.0.3] - 2022-07-08
 - Added support for LoggerHandler versions 4.x
 
