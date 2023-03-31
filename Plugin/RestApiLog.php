@@ -90,11 +90,14 @@ class RestApiLog
             return false;
         }
 
-        $matchedEndpoint = array_filter($endPointsToExclude, static fn ($item) => str_contains($endpoint, $item));
-        if ($matchedEndpoint) {
-            return true;
+        $isEndpointToExclude = false;
+        foreach ($endPointsToExclude as $item) {
+            if (strpos($endpoint, $item) !== false) {
+                $isEndpointToExclude = true;
+                break;
+            }
         }
 
-        return false;
+        return $isEndpointToExclude;
     }
 }
