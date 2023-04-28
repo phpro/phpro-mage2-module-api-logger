@@ -41,8 +41,13 @@ class SystemConfiguration implements LogConfiguration
         return (bool)$this->config->getValue(self::XML_ADD_SLASHES);
     }
 
-    public function getEndpointToExclude(): string
+    public function getEndpointToExclude(): array
     {
-        return $this->config->getValue(self::XML_ENDPOINTS_TO_EXCLUDE);
+        $endPoints = $this->config->getValue(self::XML_ENDPOINTS_TO_EXCLUDE);
+        if (null === $endPoints || '' === trim($endPoints)) {
+            return [];
+        }
+
+        return array_map("trim", preg_split('/\R/', trim($endPoints)));
     }
 }

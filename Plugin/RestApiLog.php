@@ -84,20 +84,16 @@ class RestApiLog
 
     private function isEndpointToExclude(string $endpoint): bool
     {
-        $endPointsToExclude = preg_split('/\R/', $this->configuration->getEndpointToExclude());
-
-        if (!is_array($endPointsToExclude)) {
+        if (0 >= count($this->configuration->getEndpointToExclude())) {
             return false;
         }
 
-        $isEndpointToExclude = false;
-        foreach ($endPointsToExclude as $item) {
-            if (strpos($endpoint, $item) !== false) {
-                $isEndpointToExclude = true;
-                break;
-            }
+        $combinedString = implode('|', $this->configuration->getEndpointToExclude());
+        $combinedString = addcslashes($combinedString, '/');
+        if (preg_match('/(' . $combinedString . ')/i', $endpoint)) {
+            return true;
         }
 
-        return $isEndpointToExclude;
+        return false;
     }
 }
