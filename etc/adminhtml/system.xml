@@ -20,6 +20,10 @@
                     <label>Add (back)slashes for the request and response messages</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
+                <field id="endpoints_to_exclude" translate="label" type="textarea" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Endpoints to exclude</label>
+                    <comment>Separate endpoints by putting them on new lines.</comment>
+                </field>
             </group>
         </section>
     </system>

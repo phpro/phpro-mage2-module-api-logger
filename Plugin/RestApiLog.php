@@ -35,8 +35,12 @@ class RestApiLog
         callable $proceed,
         HttpRequest $request
     ) {
-        $time_pre = microtime(true);
         $response = $proceed($request);
+        if ($this->IsEndpointToExclude($request->getRequestUri())) {
+            return $response;
+        }
+
+        $time_pre = microtime(true);
         list($responseStatusCode, $responseBody) = $this->getResponseData($response);
 
         $this->logger->info(sprintf(
@@ -76,5 +80,20 @@ class RestApiLog
         $message = preg_replace('/\s+/', ' ', $message);
 
         return ($this->configuration->getAddSlashes()) ? addslashes($message) : $message;
+    }
+
+    private function isEndpointToExclude(string $endpoint): bool
+    {
+        if (0 >= count($this->configuration->getEndpointToExclude())) {
+            return false;
+        }
+
+        $combinedString = implode('|', $this->configuration->getEndpointToExclude());
+        $combinedString = addcslashes($combinedString, '/');
+        if (preg_match('/(' . $combinedString . ')/i', $endpoint)) {
+            return true;
+        }
+
+        return false;
     }
 }
