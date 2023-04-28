@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.1.0] - 2022-07-25
+- Suppress logging for configured excluded endpoints/urls 
+
 ## [3.0.4] - 2022-07-25
 - Added support for PHP 8
 
