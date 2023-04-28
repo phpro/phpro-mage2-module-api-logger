@@ -35,12 +35,11 @@ class RestApiLog
         callable $proceed,
         HttpRequest $request
     ) {
+        $timePre = microtime(true);
         $response = $proceed($request);
         if ($this->IsEndpointToExclude($request->getRequestUri())) {
             return $response;
         }
-
-        $time_pre = microtime(true);
         list($responseStatusCode, $responseBody) = $this->getResponseData($response);
 
         $this->logger->info(sprintf(
@@ -50,10 +49,11 @@ class RestApiLog
             $request->getMethod(),
             $request->getRequestUri(),
             $responseStatusCode,
-            microtime(true) - $time_pre,
+            microtime(true) - $timePre,
             $this->parseMessage($request->getContent()),
             $this->parseMessage($responseBody)
         ));
+
         return $response;
     }
 
