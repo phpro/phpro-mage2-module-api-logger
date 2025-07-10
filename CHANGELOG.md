@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.0] - 2025-07-10
+### Added
+- Compatibility with PHP 8.4
+
+### Removed
+- Drop support for PHP ^7.0
+
 ## [3.1.0] - 2022-07-25
 - Suppress logging for configured excluded endpoints/urls 
 

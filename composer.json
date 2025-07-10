@@ -11,13 +11,13 @@
     }
   ],
   "require": {
-    "php": "^7.1|^8.0",
+    "php": "^8.0",
     "magento/framework": "^100.1|^101.0|^102.0|^103.0",
-    "phpro/mage2-module-logger-handler": "^3.0.0|^4.0.0"
+    "phpro/mage2-module-logger-handler": "^3.0.0|^4.0.0|^5.0.0"
   },
   "require-dev": {
-    "phpro/grumphp-shim": "~1.5.0",
-    "magento/magento-coding-standard": "5"
+    "phpro/grumphp-shim": "^2",
+    "magento/magento-coding-standard": "*"
   },
   "autoload": {
     "psr-4": {
@@ -37,24 +37,19 @@
       "url": "https://github.com/magento/marketplace-eqp"
     }
   ],
-  "config": {
-    "platform": {
-      "ext-gd": "7.1",
-      "ext-mcrypt": "7.1",
-      "ext-itl": "7.1",
-      "ext-xsl": "7.1",
-      "ext-bcmath": "7.1",
-      "ext-pdo_mysql": "7.1",
-      "ext-soap": "7.1",
-      "ext-zip": "7.1"
-    }
-  },
   "scripts": {
     "post-install-cmd": [
-      "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard,../../phpcompatibility/php-compatibility/PHPCompatibility)"
+      "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/,,../../magento/php-compatibility-fork)"
     ],
     "post-update-cmd": [
-      "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard,../../phpcompatibility/php-compatibility/PHPCompatibility)"
+      "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/,,../../magento/php-compatibility-fork)"
     ]
+  },
+  "config": {
+    "allow-plugins": {
+      "phpro/grumphp-shim": true,
+      "magento/composer-dependency-version-audit-plugin": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
   }
 }
